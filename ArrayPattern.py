@@ -2,6 +2,12 @@
 
 Shift Array Right
 Arrays can be shifted right by reversing the whole string, and then reversing 0,k-1 and k,len(str)
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
 
 def rotate(self, nums: List[int], k: int) -> None:
     def reverse(l, r, nums):
@@ -17,7 +23,10 @@ def rotate(self, nums: List[int], k: int) -> None:
 	
 Continuous Subarrays with Sum k
 The total number of continuous subarrays with sum k can be found by hashing the continuous sum per value and adding the count of continuous sum - k
-
+Input: nums = [23,2,4,6,7], k = 6
+Output: true
+Explanation: [2, 4] is a continuous subarray of size 2 whose elements sum up to 6.
+	
 def subarraySum(self, nums: List[int], k: int) -> int:
     mp = {0: 1}
     rtn, total = 0, 0
@@ -49,7 +58,9 @@ def employeeFreeTime(self, schedule: '[[Interval]]') -> '[Interval]':
 	
 Merge Meetings
 Merging a new meeting into a list
-
+Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
+Output: [[1,5],[6,9]]
+	
 def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
     bisect.insort(intervals, newInterval)
     merged = [intervals[0]]
@@ -64,7 +75,10 @@ def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[Lis
 	
 Kadane
 local_maxiumum[i] = max(A[i], A[i] + local_maximum[i-1]) Explanation Determine max subarray sum
-
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
+	
 # input: [-2,1,-3,4,-1,2,1,-5,4]
 def maxSubArray(self, nums: List[int]) -> int:
     for i in range(1, len(nums)):
@@ -73,6 +87,11 @@ def maxSubArray(self, nums: List[int]) -> int:
     return max(nums) # max([-2,1,-2,4,3,5,6,1,5]) = 6
 	
 Max Profit Stock
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+
 Infinite Transactions, base formula
 
 def maxProfit(self, prices: List[int]) -> int:
@@ -82,6 +101,7 @@ def maxProfit(self, prices: List[int]) -> int:
         t0 = max(t0, t1 + p)
         t1 = max(t1, t0old - p)
     return t0
+
 Single Transaction, t0 (k-1) = 0
 
 def maxProfit(self, prices: List[int]) -> int:
@@ -90,6 +110,7 @@ def maxProfit(self, prices: List[int]) -> int:
         t0 = max(t0, t1 + p)
         t1 = max(t1, - p)
     return t0
+
 K Transactions
 
 t0 = [0] * (k+1)
