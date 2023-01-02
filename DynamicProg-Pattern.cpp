@@ -1,4 +1,6 @@
+
 https://leetcode.com/discuss/study-guide/458695/Dynamic-Programming-Patterns
+https://leetcode.com/discuss/general-discussion/1050391/Must-do-Dynamic-programming-Problems-Category-wise
 
 1)Minimum (Maximum) Path to Reach a Target
 
