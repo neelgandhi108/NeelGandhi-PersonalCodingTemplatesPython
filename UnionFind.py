@@ -9,7 +9,8 @@ class UnionFind:
     def findParent(self, x):
         y = self.f.get(x, x)
         if x != y:
-            y = self.f[x] = self.findParent(y)
+            y =  self.findParent(y)
+            self.f[x] = y
         return y
 
     def union(self, x, y):
